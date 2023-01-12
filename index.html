@@ -152,11 +152,49 @@
             color: white;
         }
 
+        /* Text Fade-up effect */
+        .reveal{
+          position: relative;
+          transform: translateY(100px);
+          opacity: 0;
+          transition: 0.5s all ease;
+        }
+
+        .reveal.active{
+          transform: translateY(0);
+          opacity: 1;
+        }
+
         html
         {
           scroll-padding-top: 10vh; /* height of sticky header */
         }
     </style>
+
+    <!-- Inserindo o JS para fazer o efeito do fade-up -->
+    <!-- Referência: https://alvarotrigo.com/blog/css-animations-scroll/ -->
+    <script>
+        function reveal() {
+          var reveals = document.querySelectorAll(".reveal");
+
+          for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+
+            if (elementTop < windowHeight - elementVisible) {
+              reveals[i].classList.add("active");
+            } else {
+              reveals[i].classList.remove("active");
+            }
+          }
+        }
+
+        window.addEventListener("scroll", reveal);
+
+    </script>
+
+
 </head>
 <body>
 
@@ -171,7 +209,7 @@
 <div class="parallax"></div>
 
 <!-- Seção dos Serviços -->
-<section>
+<section class="reveal">
 
     <h1 style="margin-top: 5vh;padding-top: 5vh;text-align: center;font-family:'Oswald';">SERVIÇOS</h1>
     <hr style="max-width: 50px;border-width: 3px;border-color: rgba(6,42,78);text-align: center;margin: auto;padding: 5vh; opacity:1"></hr>
@@ -305,7 +343,7 @@
 </section>
 
 <!-- Sobre -->
-<section>
+<section class="reveal">
     <div class="container-fluid" style="background-color: rgba(119,80,21,.1);padding-bottom: 5vh;">
         <h1 id="sobre" style="margin-top: 5vh;padding-top: 5vh;text-align: center;font-family:'Oswald';">SOBRE</h1>
         <hr style="max-width: 50px;border-width: 3px;border-color: rgba(6,42,78);text-align: center;margin: auto;padding: 5vh; opacity:1"></hr>
@@ -375,7 +413,7 @@
 </section>
 
 <!-- Equipe -->
-<section>
+<section class="reveal">
     <h1 id="equipe" style="margin-top: 5vh;text-align: center;font-family:'Oswald';">EQUIPE</h1>
     <hr style="max-width: 50px;border-width: 3px;border-color: rgba(6,42,78);text-align: center;margin: auto;padding: 5vh; opacity:1"></hr>
 
@@ -431,14 +469,14 @@
 </section>
 
 <!-- Mapa -->
-<section>
+<section class="reveal">
     <div id="localizacao" class="container-fluid" style="margin-top: 5vh;padding-top: 5vh; padding-left: 0; padding-right: 0">
         <iframe style="width:100%; height:50vh;" data-src="https://maps-cdn.site123.com/include/globalMapDisplay.php?q=Rua+Coronel+Souza+Franco%2C+771+-+Centro%2C+Mogi+das+Cruzes+-+State+of+S%C3%A3o+Paulo%2C+Brazil&amp;z=15&amp;l=en&amp;ilfc=" frameborder="0" style="pointer-events: none;" data-ll-status="loaded" src="https://maps-cdn.site123.com/include/globalMapDisplay.php?q=Rua+Coronel+Souza+Franco%2C+771+-+Centro%2C+Mogi+das+Cruzes+-+State+of+S%C3%A3o+Paulo%2C+Brazil&amp;z=15&amp;l=en&amp;ilfc="></iframe>
     </div>
 </section>
 
 <!-- Contatos -->
-<section>
+<section class="reveal">
 
 <h1 id="contatos" style="margin-top: 5vh;text-align: center;font-family:'Oswald';">CONTATOS</h1>
 <hr style="max-width: 50px;border-width: 3px;border-color: rgba(6,42,78);text-align: center;margin: auto;padding: 5vh; opacity:1"></hr>
