@@ -2,13 +2,14 @@
 
 As figuras foram baixadas do Unsplash.
 
-https://unsplash.com
+* https://unsplash.com
+* https://www.pexels.com/
 
 ## QR Code
 
 Foi gerado a partir do site QR.io
 
-https://qr.io
+* https://qr.io
 
 ## Logo
 
