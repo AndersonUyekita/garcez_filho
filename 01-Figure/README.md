@@ -16,3 +16,9 @@ Foi gerado a partir do site QR.io
 Foi feito a partir da vetorização de uma figura do Flaticon.
 
 https://www.flaticon.com
+
+## Favicon
+
+Gerado no site:
+
+* https://favicon.io
