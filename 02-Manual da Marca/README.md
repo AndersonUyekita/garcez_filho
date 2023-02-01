@@ -16,5 +16,6 @@ Este documento visa facilitar as cores usadas no logotipo.
 
 ## Tipografia
 
-* Fonte 1: Book Antiqua (Bold)
-* Fonte 2: Sans Serif (Normal)
+* Fonte 1: Oswald
+* Fonte 2: Book Antiqua (Bold)
+* Fonte 3: Sans Serif (Normal)
