@@ -1,7 +1,7 @@
 ---
-permalink: /politica-de-cookies.html
+title: Política de Cookies
+permalink: /pages/politica-de-cookies.html
 ---
 
-# Política de cookies
 
 Ipsum lorem.

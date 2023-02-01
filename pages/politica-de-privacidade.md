@@ -1,7 +1,7 @@
 ---
-permalink: /politica-de-privacidade.html
+title: Política de Privacidade
+permalink: /pages/politica-de-privacidade.html
 ---
 
-# Política de Privacidade
 
 Ipsum lorem.
