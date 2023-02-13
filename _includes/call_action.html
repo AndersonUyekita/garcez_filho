@@ -1,0 +1,124 @@
+<style>
+    /* Botão customizado na Cor AZUL*/
+    .btn-default {
+      background-color: #062A4E; /* Cor do Logotipo */
+      color: white; /* cor da fonte */
+      border: none; /* sem borda */
+      transition: all 0.2s ease-in-out; /* efeito de transição */
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    /* Botão customizado ao passar o mouse */
+    .btn-default:hover {
+      background-color: #062A4E30; /* cor ao passar o mouse */
+      cursor: pointer; /* cursor de clique */
+    }
+
+    /* Botão customizado do WhatsApp*/
+    .btn-whatsapp {
+      background-color: #25D366; /* cor do WhatsApp */
+      color: white; /* cor da fonte */
+      border: none; /* sem borda */
+      transition: all 0.2s ease-in-out; /* efeito de transição */
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    /* Botão customizado ao passar o mouse */
+    .btn-whatsapp:hover {
+      background-color: #25D36630; /* cor ao passar o mouse */
+      cursor: pointer; /* cursor de clique */
+    }
+</style>
+
+<!-- Ficou Interessado -->
+<section class="reveal" style="margin: 2vh 0; padding: 2vh 0;">
+
+    <!-- Linha de informação -->
+    <div class="row justify-content-center m-0 p-0">
+
+        <div class="col m-0 p-0 section-responsive">
+
+            <h1 style="text-align: center;font-family:'Oswald';">FICOU INTERESSADO?</h1>
+            <hr style="max-width: 50px;border-width: 3px;border-color: rgba(6,42,78);text-align: center;margin: auto;padding: 3vh; opacity:1">
+
+            <!-- Definindo uma "linha" -->
+            <div class="row mb-2 g-5">
+
+                <!-- Coluna da Esquerda -->
+                <div class="col-md-6">
+                    <h3 style="text-align: center;font-family:'Oswald';">NEWSLETTER</h3>
+                    <hr style="max-width: 25px;border-width: 2px;border-color: rgba(6,42,78);text-align: center;margin: auto;padding: 1vh; opacity:1">
+
+                    <p style="text-align: center;">Fique por dentro das novidades do blog da <strong>Garcez Filho | Advocacia & Consultoria Jurídica</strong>, assinando a nossa newsletter.</p>
+
+                    <!-- Formulário para inscrição da newsletter -->
+                    <form>
+                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                            <label for="clique_input" class="visually-hidden">Email address</label>
+                            <input id="clique_input" type="text" class="form-control" placeholder="Endereço de email">
+                            <button id="clique_assinar" class="btn btn-default" type="button">
+                                <i class="bi bi-send"></i> Assinar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Coluna da Direita -->
+                <div class="col-md-6">
+
+                    <h3 style="text-align: center;font-family:'Oswald';">MENSAGEM</h3>
+                    <hr style="max-width: 25px;border-width: 2px;border-color: rgba(6,42,78);text-align: center;margin: auto;padding: 1vh; opacity:1">
+
+                    <p style="text-align: center;">Envie uma mensagem pelo WhatsApp e logo alguém da equipe de <strong>Garcez Filho | Advocacia & Consultoria Jurídica</strong> entrará em contato com você.</p>
+
+                    <!-- Entre em contato -->
+                    <div class="container-fluid" style="text-align: center;">
+                        <a href="https://wa.me/5511999776346" class="btn btn-whatsapp" role="button" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast de Confirmação: Sucesso -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toast-success" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+            <div class="toast-body">
+                Email registrado com sucesso!!
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast de Confirmação: Problema -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toast-fail" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+            <div class="toast-body">
+                Houve algum problema no cadastro do seu email.
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<script>
+  // Adiciona um event listener ao botão "clique_assinar"
+  document.getElementById("clique_assinar").addEventListener("click", async function() {
+    
+    // Pega o valor do input com id "clique_input"
+    const email = document.getElementById("clique_input").value;
+
+    try {
+      // Chama a função saveToAirtable com o email do input
+      await saveToAirtable(email);
+      // Adiciona a classe "show" ao toast de sucesso
+      document.getElementById("toast-success").classList.add("show");
+    } catch (error) {
+      // Adiciona a classe "show" ao toast de erro
+      document.getElementById("toast-fail").classList.add("show");
+    }
+  });
+</script>
+
+<script src="/assets/js/saveToAirtable.js"></script>

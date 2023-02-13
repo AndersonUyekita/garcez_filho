@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
+
+	{% comment %} Insere a tag head {% endcomment %}
+	{% include header.html %}
+
+
+	<style>
+		/* Criando sections responsivos para cada tipo de dispositivo */
+		/* Aplicação: col */
+		.section-responsive {
+		  max-width: 85vw;
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: center;
+		  margin: 0;
+		  padding: 0;
+		}
+
+		@media (max-width: 767px) {
+		  .section-responsive {
+			max-width: 95vw;
+		  }
+		}
+
+	</style>
+
+	<body>
+
+        {% comment %} Insere o Navbar {% endcomment %}
+        {% include navbar.html %}
+
+		{{ content }}
+
+		{% if page.featured_section %}
+
+			{% comment %}Insere a seção "Destaques"{% endcomment %}
+			{% include featured.html %}
+
+		{% endif %}
+
+		{% if page.call_action_section %}
+
+			{% comment %}Insere a seção "Ficou Interessado?"{% endcomment %}
+			{% include call_action.html %}
+
+		{% endif %}
+
+		{% comment %}Footer genérico{% endcomment %}
+		{% include footer.html %}
+
+	</body>
+</html>

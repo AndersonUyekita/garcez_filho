@@ -1,0 +1,85 @@
+{% comment %}
+
+Esse include cria um badge ou mais de acordo com a categoria da publicação.
+
+Ele faz uso de um switch case.
+
+{% endcomment %}
+
+<style>
+	/* Badge CIVIL */
+	.badge-civil {
+	  background-color: #4285F4;
+	  color: white;
+	}
+
+	/* Badge IMOBILIÁRIO */
+	.badge-imobiliario {
+	  background-color: #3B97A4;
+	  color: white;
+	}
+
+	/* Badge AMBIENTAL */
+	.badge-ambiental {
+	  background-color: #34A853;
+	  color: white;
+	}
+
+	/* Badge PENAL */
+	.badge-penal {
+	  background-color: #EA4335;
+	  color: white;
+	}
+
+	/* Badge TRABALHISTA */
+	.badge-trabalhista {
+	  background-color: #FBBC05;
+	  color: white;
+	}
+
+	/* Badge ARMAS */
+	.badge-armas {
+	  background-color: #1D1E2C;
+	  color: white;
+	}
+
+	/* Badge ARMAS */
+	.badge-data {
+	  background-color: #062A4E;
+	  color: white;
+	}
+</style>
+
+{% for cat in include.categories %}
+
+	{% case cat %}
+
+		{% when "ambiental" %}
+
+			<span class="badge badge-ambiental">Ambiental</span>
+
+		{% when "civil" %}
+
+			<span class="badge badge-civil">Civil</span>
+
+		{% when "imobiliario" %}
+
+			<span class="badge badge-imobiliario">Imobiliário</span>
+
+		{% when "penal" %}
+
+			<span class="badge badge-penal">Penal</span>
+
+		{% when "trabalhista" %}
+
+			<span class="badge badge-trabalhista">Trabalhista</span>
+
+		{% when "armas" %}
+
+			<span class="badge badge-armas">Armas</span>
+
+	{% endcase %}
+
+{% endfor %}
+
+

@@ -1,0 +1,21 @@
+{% comment %}
+
+Esse include insere um Hero no início da página Full width.
+
+{% endcomment %}
+
+<style>
+	.hero-default {
+	  height: {{ include.height }};
+	  background-position: center;
+	  background-size: cover;
+	  background-image: url({{ page.hero_url}});
+	  filter: brightness(50%);
+	}
+</style>
+
+<!-- Imagem do Hero -->
+<section>
+	<div class="container-fluid-g0 hero-default">
+	</div>
+</section>

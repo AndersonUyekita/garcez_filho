@@ -1,0 +1,30 @@
+{% comment %}
+Esse include é um wrapper para uso dos callout.
+    
+As variáveis envolvidas:
+
+	include.color:    É a cor do callout
+	include.content:  É o conteúdo que irá dentro do callout
+
+{% endcomment %}
+
+
+
+
+<!-- Callout -->
+<div class="position-relative" style="background-color:{{ include.color }}10;">
+	
+	<!-- DIV usado para colocar o ícone à esquerda -->
+	<div class="position-absolute top-50 start-0 translate-middle-y">
+		<p style="border-radius: 100%;color: white;position: absolute;font-size: 1rem;font-weight: bold;text-align: center;background-color: #4285F4;width: 2rem;height: 2rem;left: -13px;line-height: 2rem;top: calc(50% - 1rem);">
+			
+			<!-- Íconem usado -->
+			<i class="bi bi-exclamation-triangle-fill"></i>
+		</p>
+	</div>
+
+	<!-- Conteúdo -->
+	<p style="border-left-width: 5px;border-left-style: solid;border-left-color: {{ include.color }};padding-left: 25px;padding-top:1rem;padding-bottom:1rem;padding-right:1rem;">
+		{{ include.content }}
+	</p>
+</div>

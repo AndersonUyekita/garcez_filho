@@ -1,0 +1,195 @@
+{% comment %}
+Esse include concentra toda a parte de mídias socias e CSAT.
+
+Foram inseridos efeitos:
+
+    1. Criei uma classe social-icon para concentrar as edições nessa classe.
+	2. Criação da classe rating para concentrar as edições de avaliaçao.
+
+Os dois JavaScripts são necessários para:
+
+    1. Criar o TOC automaticamente
+    2. Criar o efeito de fade-up
+{% endcomment %}
+
+<style>
+	/* Definição da classe social-icon */
+	.social-icon {
+		font-size: 1.5rem; /* Define o tamanho inicial da fonte */
+		color: #00000090;
+		display: inline-block; /* Mantém os ícones alinhados */
+	}
+
+	/* Hover effect nos ícones de redes sociais */
+	.social-icon:hover {
+		color: #000000; /* Altera para preto */
+		-webkit-transform: scale(1.2); /* Aumenta 20% */
+		-moz-transform: scale(1.2); /* Aumenta 20% */
+		-ms-transform: scale(1.2); /* Aumenta 20% */
+		transform: scale(1.2) translateZ(0); /* Aumenta 20% */
+		transition: 0.4s all ease;
+	}
+
+	/* Define a classe Rating */
+	.rating {
+
+	  /* Faz o elemento ser exibido como um bloco inline */
+	  display: inline-block;
+
+	  /* Define o tamanho da fonte */
+	  font-size: 1.5rem;
+
+	  /* Define a cor das estrelas */
+	  color: #c5c5c5;
+	}
+
+	/* Oculta o input */
+	.rating input {
+	  display: none;
+	}
+
+	/* Define a classe de estrela */
+	.rating .star {
+	  /* Define a posição relativa */
+	  position: relative;
+
+	  /* Define o cursor como ponteiro para indicar a interatividade */
+	  cursor: pointer;
+
+	  /* Alinha a estrela à direita */
+	  float: right;
+
+	  /* Adiciona uma margem à direita */
+	  margin-right: 3px;
+	}
+
+	/* Define o conteúdo da estrela como o caractere estrela */
+	.rating .star:before {
+	  content: '\2605';
+	  position: absolute;
+	}
+
+	/* Define o conteúdo de meia estrela como duas estrelas */
+	.rating .star.half:before {
+	  content: '\2605\2605';
+	  position: absolute;
+
+	  /* Define a largura */
+	  width: 5px;
+
+	  /* Faz a estrela ser exibida como bloco */
+	  display: block;
+
+	  /* Esconde o conteúdo excessivo */
+	  overflow: hidden;
+
+	  /* Impede que o conteúdo seja quebrado em uma nova linha */
+	  white-space: nowrap;
+	}
+
+	/* Define a cor da label */
+	.rating label {
+	  color: #c5c5c5;
+	}
+
+	/* Define a cor da estrela selecionada ou em hover */
+	.rating input:checked ~ label,
+	.rating:not(:checked) > label:hover,
+	.rating:not(:checked) > label:hover ~ label {
+	  color: #ffc107;
+	}
+
+	/* Define a cor da estrela selecionada ao ser clicada ou em hover */
+	.rating input:checked + label:hover,
+	.rating input:checked ~ label:hover,
+	.rating label:hover ~ input:checked ~ label,
+	.rating input:checked ~ label:hover ~ label {
+	  color: #e0ab1b;
+	}
+
+	/* Botão customizado na Cor AZUL*/
+	.btn-default {
+	  background-color: #062A4E; /* cor desejada */
+	  color: white; /* cor da fonte */
+	  border: none; /* sem borda */
+	  transition: all 0.2s ease-in-out; /* efeito de transição */
+	}
+
+	/* Botão customizado ao passar o mouse */
+	.btn-default:hover {
+	  background-color: #062A4E30; /* cor ao passar o mouse */
+	  cursor: pointer; /* cursor de clique */
+	}
+</style>
+
+<!-- Social Media & Rating -->
+<div class="container-fluid row gx-5 mx-0 px-0" style="margin-top: 7vh;">
+
+	<!-- Compartilhe -->
+	<div class="col-sm-12 col-md-6 col-lg-4 p-0 pb-4">
+
+		<h5 style="font-family:Oswald; text-align: center;">Compartilhar</h5>
+
+		<div class="container-fluid" style="word-spacing:10px; text-align: center;">
+
+			<i class="bi bi-facebook social-icon"></i>
+			<i class="bi bi-whatsapp social-icon"></i>
+			<i class="bi bi-twitter social-icon"></i>
+			<i class="bi bi-linkedin social-icon"></i>
+			<i class="bi bi-link-45deg social-icon"></i>
+		</div>
+	</div>
+
+	<!-- Comentários -->
+	<div class="col-sm-12 col-md-6 col-lg-4 p-0 pb-4">
+
+		<h5 style="font-family:Oswald; text-align: center;">Comentar</h5>
+
+		<div class="container-fluid" style="text-align: center;">
+			<!-- Botão do Offcanvas -->
+			<button class="btn btn-default" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+				<i class="bi bi-chat-left-dots-fill"></i> Faça o seu comentário
+			</button>
+
+			<!-- Conteúdo do Offcanvas -->
+			<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+    
+				<!-- Título do Canvas + Botão de Fechar -->
+				<div class="offcanvas-header">
+					<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" style="margin:auto;">Comentários</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</div>
+
+				<!-- Corpo do Canvas -->
+				<div class="offcanvas-body">
+
+					{% comment %} Inserindo o include do Disqus {% endcomment %}
+					{% include comments_disqus.html %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Avalie -->
+	<div class="col-sm-12 col-md-12 col-lg-4 p-0 pb-4">
+
+		<h5 style="font-family:Oswald; text-align: center;">Avaliar</h5>
+
+		<div class="container-fluid" style="text-align: center;">
+
+			<div class="rating">
+				<input type="radio" id="star5" name="rating" value="5" />
+				<label for="star5" class="star" title="5 estrelas">&#9733;</label>
+				<input type="radio" id="star4" name="rating" value="4" />
+				<label for="star4" class="star" title="4 estrelas">&#9733;</label>
+				<input type="radio" id="star3" name="rating" value="3" />
+				<label for="star3" class="star" title="3 estrelas">&#9733;</label>
+				<input type="radio" id="star2" name="rating" value="2" />
+				<label for="star2" class="star" title="2 estrelas">&#9733;</label>
+				<input type="radio" id="star1" name="rating" value="1" />
+				<label for="star1" class="star" title="1 estrela">&#9733;</label>
+			</div>
+
+		</div>
+	</div>
+</div>
