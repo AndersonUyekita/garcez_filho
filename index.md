@@ -1,8 +1,7 @@
 ---
-title: nil
 layout: zero
 date: 2023-02-03 12:00:00 -0300
-permalink: /index
+permalink: /
 featured_section: false
 call_action_section: false
 ---
@@ -305,10 +304,8 @@ call_action_section: false
 
 <!-- Contatos -->
 <section class="reveal">
-
     <h1 id="contatos" style="margin-top: 5vh; padding-top: 5vh; text-align: center;font-family:'Oswald';">CONTATOS</h1>
     <hr style="max-width: 50px;border-width: 3px;border-color: rgba(6,42,78);text-align: center;margin: auto;padding: 5vh; opacity:1">
-
     <div class="container-fluid" style="max-width:70vw">
         <div class="row row-cols-1 row-cols-md-2 g-5">
             <!-- Coluna da Esquerda -->
